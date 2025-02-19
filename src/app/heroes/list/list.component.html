@@ -1,0 +1,29 @@
+<h3>Listado de Heroes</h3>
+
+
+<!--ngFor: Convierte el <li> en un template, y lo usa para duplicarlo basado en la cantidad de elementos dentro de la lista
+  <li *ngFor="let name of heroNames"-->
+<!--DOBLE LLAVES PARA USAR LA INTERPOLACION-->
+
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>Heroe Borrado <small class="text-danger"> {{deletedHero}} </small></h3>
+</div>
+<ng-template #nothingWasDeleted>
+    <h3>No ha borrado nada</h3>
+
+</ng-template>
+
+<button
+*ngIf="heroNames.length > 0"
+(click)="removeLasthero()"
+class="btn btn-outline-danger">
+  Borrar ultimo heroe
+</button>
+
+<ul class="mt-2 list-group">
+
+  <li *ngFor="let name of heroNames" class="list-group-item">{{name}}</li>
+
+</ul>
+
+
